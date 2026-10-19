@@ -1,6 +1,23 @@
 import { useState } from 'react'
 import ProductList from './components/ProductList.jsx'
 
+const pageStyle = {
+  maxWidth: '600px',
+  margin: '40px auto',
+  padding: '0 16px',
+  fontFamily: 'system-ui, sans-serif',
+}
+
+const buttonStyle = {
+  padding: '8px 16px',
+  marginBottom: '16px',
+  cursor: 'pointer',
+}
+
+const inputStyle = {
+  padding: '6px 8px',
+}
+
 function App() {
   const [showProducts, setShowProducts] = useState(false)
   const [name, setName] = useState('')
@@ -14,10 +31,10 @@ function App() {
   }
 
   return (
-    <div>
+    <div style={pageStyle}>
       <h1>React Product Dashboard</h1>
 
-      <button onClick={handleToggle}>
+      <button style={buttonStyle} onClick={handleToggle}>
         {showProducts ? 'Hide Products' : 'Show Products'}
       </button>
 
@@ -26,6 +43,7 @@ function App() {
         <input
           id="name"
           type="text"
+          style={inputStyle}
           value={name}
           onChange={handleNameChange}
           placeholder="Type your name"
